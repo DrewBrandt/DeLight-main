@@ -1,0 +1,127 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="DeLight.App"
+             xmlns:local="using:DeLight"
+             RequestedThemeVariant="Dark">
+	<!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+	<Application.Resources>
+		<SolidColorBrush x:Key="BackgroundBrush" Color="Black" />
+		<SolidColorBrush x:Key="InteractiveControlBackground" Color="#191919" />
+		<SolidColorBrush x:Key="InteractiveControlMouseOver" Color="#292929"/>
+		<SolidColorBrush x:Key="InteractiveControlBorder" Color="#444" />
+		<SolidColorBrush x:Key="InteractiveControlForeground" Color="White" />
+		<SolidColorBrush x:Key="TextDisabled" Color="#444" />
+		<SolidColorBrush x:Key="ForegroundBrush" Color="White" />
+		<SolidColorBrush x:Key="TextBaseBrush" Color="White" />
+		<SolidColorBrush x:Key="TextAltBrush" Color="#D345A4" />
+		<SolidColorBrush x:Key="AccentBrush" Color="#45a4d3" />
+		<SolidColorBrush x:Key="AccentBrushDark" Color="#468" />
+		<SolidColorBrush x:Key="AccentBrushMed" Color="#579" />
+		<SolidColorBrush x:Key="AccentBrushLight" Color="#7cf" />
+		<SolidColorBrush x:Key="ErrorBG" Color="#56211d" />
+		<SolidColorBrush x:Key="ErrorFG" Color="#F33" />
+	</Application.Resources>
+	<Application.Styles>
+		<FluentTheme />
+		<Style Selector="TextBox:pointerover">
+			<Setter Property="Background" Value="#fff" />
+			<Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+		</Style>
+		<Style Selector="TextBox:focus">
+			<Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+		</Style>
+		<Style Selector="TextBox /template/ DockPanel#PART_InnerDockPanel">
+			<Setter Property="Margin" Value="7,3,3,3" />
+		</Style>
+		<Style Selector="TextBox Border">
+			<Setter Property="CornerRadius" Value="5"/>
+		</Style>
+		<Style Selector="TextBox:focus Border">
+			<Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+		</Style>
+		<Style Selector="TextBox.Error">
+			<Setter Property="Foreground" Value="{StaticResource ErrorFG}" />
+			<Setter Property="Background" Value="{StaticResource ErrorBG}" />
+		</Style>
+		<Style Selector="TextBox.Error:pointerover /template/ Border#PART_BorderElement">
+			<Setter Property="Background" Value="{StaticResource ErrorBG}" />
+		</Style>
+		<Style Selector="TextBox.Error:focus /template/ Border#PART_BorderElement">
+			<Setter Property="Background" Value="{StaticResource ErrorBG}" />
+		</Style>
+		<Style Selector="TextBox">
+			<Setter Property="FontFamily" Value="MS Reference Sans Serif"/>
+			<Setter Property="FontSize" Value="{Binding $parent[Window].DataContext.BodyFontSize}" />
+			<Setter Property="Background" Value="{StaticResource InteractiveControlBackground}" />
+			<Setter Property="BorderBrush" Value="{StaticResource InteractiveControlBorder}" />
+			<Setter Property="Foreground" Value="{StaticResource InteractiveControlForeground}" />
+			<Setter Property="VerticalContentAlignment" Value="Center" />
+			<Setter Property="CornerRadius" Value="0" />
+			<Setter Property="Padding" Value="6,4" />
+			<Setter Property="MinWidth" Value="0" />
+			<Setter Property="MinHeight" Value="0" />
+		</Style>
+		<Style Selector="TextBlock">
+			<Setter Property="FontFamily" Value="MS Reference Sans Serif"/>
+			<Setter Property="FontSize" Value="{Binding $parent[Window].DataContext.BodyFontSize}" />
+			<Setter Property="Foreground" Value="{StaticResource TextBaseBrush}" />
+		</Style>
+		<Style Selector="TextBlock.listItem">
+			<Setter Property="FontFamily" Value="MS Reference Sans Serif"/>
+			<Setter Property="FontStyle" Value="Normal" />
+			<Setter Property="Height" Value="{Binding $parent[Window].DataContext.RowHeight}" />
+		</Style>
+		<Style Selector="TextBox.SubTitle">
+			<Setter Property="FontFamily" Value="MS Reference Sans Serif"/>
+			<Setter Property="FontSize" Value="{Binding $parent[Window].DataContext.SubtitleFontSize}" />
+			<Setter Property="Foreground" Value="{StaticResource TextBaseBrush}" />
+			<Setter Property="HorizontalAlignment" Value="Center" />
+		</Style>
+		
+		
+		<Style Selector="TextBlock.SubTitle">
+			<Setter Property="FontFamily" Value="MS Reference Sans Serif"/>
+			<Setter Property="FontSize" Value="{Binding $parent[Window].DataContext.SubtitleFontSize}" />
+			<Setter Property="Foreground" Value="{StaticResource TextBaseBrush}" />
+			<Setter Property="HorizontalAlignment" Value="Center" />
+		</Style>
+		<Style Selector="TextBlock.CueListContent">
+			<Setter Property="FontFamily" Value="MS Reference Sans Serif"/>
+			<Setter Property="FontSize" Value="{Binding $parent[Window].DataContext.CueFontSize}" />
+			<Setter Property="Foreground" Value="{StaticResource TextBaseBrush}" />
+			<Setter Property="HorizontalAlignment" Value="Center" />
+		</Style>
+		<Style Selector="TextBlock.Title">
+			<Setter Property="FontFamily" Value="MS Reference Sans Serif"/>
+			<Setter Property="FontSize" Value="{Binding $parent[Window].DataContext.TitleFontSize}" />
+			<Setter Property="Foreground" Value="{StaticResource TextBaseBrush}" />
+			<Setter Property="HorizontalAlignment" Value="Center" />
+		</Style>
+
+		<Style Selector="ComboBox">
+			<Setter Property="MinWidth" Value="0" />
+			<Setter Property="MinHeight" Value="0" />
+			<Setter Property="CornerRadius" Value="0"/>
+		</Style>
+		<Style Selector="ComboBox:disabled TextBlock">
+			<Setter Property="Foreground" Value="{StaticResource TextDisabled}" />
+		</Style>
+		
+		
+		<Style Selector="Expander">
+			<Setter Property="CornerRadius" Value="0" />
+			<Style Selector="^:expanded">
+				<Setter Property="Margin" Value="0,0,0,10" />
+			</Style>
+			<Style Selector="^.Error ToggleButton > Border">
+				<Setter Property="Background" Value="{StaticResource ErrorBG}" />
+				<Setter Property="BorderBrush" Value="{StaticResource ErrorFG}" />
+			</Style>
+			
+			<Style Selector="^.Error ToggleButton TextBlock">
+				<Setter Property="Foreground" Value="{StaticResource ErrorFG}" />
+			</Style>
+		</Style>
+	</Application.Styles>
+
+</Application>
